@@ -57,10 +57,8 @@ function PortfolioDiagonal() {
         onRefresh: measure,
         onUpdate: (self) => {
           const p = self.progress;
-          // Diagonal slide: strong horizontal travel + gentle vertical drift.
-          const x = -state.distance * p;
-          const y = (p - 0.5) * window.innerHeight * 0.14;
-          gsap.set(track, { x, y });
+          // Pure horizontal slide — no vertical drift.
+          gsap.set(track, { x: -state.distance * p, y: 0 });
           // Subtle per-tile parallax so tiles don't move as one rigid slab.
           imgRefs.current.forEach((img, i) => {
             if (!img) return;
@@ -123,8 +121,6 @@ function PortfolioDiagonal() {
               style={{
                 width: 'clamp(300px, 30vw, 440px)',
                 height: '64vh',
-                // Descending diagonal staircase — the axis the tiles slide along.
-                transform: `translateY(${i * 2.4}vh)`,
                 clipPath: `polygon(${SLANT}px 0, 100% 0, calc(100% - ${SLANT}px) 100%, 0 100%)`
               }}
             >

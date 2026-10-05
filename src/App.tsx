@@ -10,7 +10,6 @@ import Intro from './sections/Intro';
 import Manifesto from './sections/Manifesto';
 import Studio from './sections/Studio';
 import Portfolio from './sections/Portfolio';
-import GiantHeadline from './sections/GiantHeadline';
 import Process from './sections/Process';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
@@ -42,7 +41,6 @@ function Site() {
         <Manifesto />
         <Studio />
         <Portfolio />
-        <GiantHeadline />
         <Process />
         <Contact />
       </main>
